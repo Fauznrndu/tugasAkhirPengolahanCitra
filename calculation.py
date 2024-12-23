@@ -1,19 +1,19 @@
 import cv2
 import numpy as np
 
-#untuk mendapatkan kontur pada citra
+
 def getContours(img, cThr=[100,100], showCanny=False, minArea=1000, filter=0, draw=False):
-    #membuat gambar menjadi gray scale
+
     imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    #membuat gambar menjadi blur
+
     imgBlur = cv2.GaussianBlur(imgGray,(5,5), 1)
-    #menemukan tepi
+
     imgCanny = cv2.Canny(imgBlur,cThr[0],cThr[1])
-    #untuk mendapat hasil tepi yang baik
+
     kernel = np.ones((5,5))
     imgDial = cv2.dilate(imgCanny, kernel, iterations=3)
     imgThre = cv2.erode(imgDial, kernel, iterations=2)
-    #menampilkan hasil
+
     if showCanny:cv2.imshow('Canny', imgThre)
 
     contours, hiearchy = cv2.findContours(imgThre, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)

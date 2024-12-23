@@ -2,9 +2,9 @@ import cv2
 import numpy as np
 import calculation
 
-#membaca gambar
+
 path = "dataset/3.jpeg"
-#membaca kamera
+
 webcam = False
 cap  = cv2.VideoCapture(0)
 cap.set(10, 160)
