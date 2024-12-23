@@ -3,7 +3,7 @@ import numpy as np
 import calculation
 
 #membaca gambar
-path = "dataset/1.jpeg"
+path = "dataset/3.jpeg"
 #membaca kamera
 webcam = False
 cap  = cv2.VideoCapture(0)
